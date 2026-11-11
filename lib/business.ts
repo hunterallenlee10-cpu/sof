@@ -49,6 +49,11 @@ export const EVENTS_EMAIL = BUSINESS.email;
 export const SITE_MODE: "demo" | "live" =
   process.env.NEXT_PUBLIC_SITE_MODE === "live" ? "live" : "demo";
 
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, "");
+// Falls back to Vercel's production URL, then localhost, so canonicals are never empty.
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}` : "") ||
+  "http://localhost:3000"
+).replace(/\/$/, "");
 
 export const IS_LIVE = SITE_MODE === "live";

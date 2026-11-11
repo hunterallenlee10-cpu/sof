@@ -6,13 +6,15 @@ import HoursTagCard from "@/components/HoursTagCard";
 import FinalCta from "@/components/sections/FinalCta";
 import { ADDRESS_LINE, BUSINESS, MAPS_EMBED_URL, MAPS_URL } from "@/lib/business";
 import { PHOTOS } from "@/lib/photos";
+import JsonLd from "@/components/JsonLd";
+import { pageMeta } from "@/lib/seo";
+import { breadcrumbSchema, brudergartenSchema, graph, marketSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: { absolute: "Hours and Directions | Shepherd's Old Field Market" },
-  description:
-    "Hours, directions and contact for Shepherd's Old Field Market, 22725 Duke Street, Leonardtown, MD 20650. Call (240) 309-4067 or plan your visit online.",
-  alternates: { canonical: "/visit" },
-};
+const TITLE = "Hours and Directions | Shepherd's Old Field Market";
+const DESCRIPTION =
+  "Hours, directions and contact for Shepherd's Old Field Market, 22725 Duke Street, Leonardtown, MD 20650. Call (240) 309-4067 or plan your visit online.";
+
+export const metadata: Metadata = pageMeta({ title: TITLE, description: DESCRIPTION, path: "/visit" });
 
 const tiles = [
   { href: BUSINESS.phoneHref, icon: Phone, title: "Call", line: BUSINESS.phoneDisplay, external: false },
@@ -24,6 +26,16 @@ export default function VisitPage() {
   const p = PHOTOS.storefront;
   return (
     <>
+      <JsonLd
+        data={graph(
+          marketSchema(),
+          brudergartenSchema(),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Plan your visit", path: "/visit" },
+          ]),
+        )}
+      />
       <section aria-labelledby="visit-title" className="pt-8 pb-14 lg:pt-14 lg:pb-20">
         <div className="container-x grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-14">
           <div>

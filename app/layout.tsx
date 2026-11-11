@@ -29,6 +29,12 @@ export const metadata: Metadata = {
     template: "%s | Shepherd's Old Field Market",
   },
   applicationName: BUSINESS.name,
+  openGraph: {
+    type: "website",
+    siteName: BUSINESS.name,
+    locale: "en_US",
+  },
+  twitter: { card: "summary_large_image" },
   robots: IS_LIVE ? { index: true, follow: true } : { index: false, follow: false },
   formatDetection: { telephone: true, address: true, email: true },
 };
