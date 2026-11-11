@@ -109,7 +109,7 @@ export const PHOTOS = {
   salad: p("26-botanic-salad-bowl", 1000, 948, "A fresh salad bowl with sprouts, avocado and chickpeas from Botanic Deli and Cafe"),
   // DRAFT: confirm this is a Bowl 29 dish. Captioned only as "From the market's kitchens".
   bowl: p("27-bowl-ramen-egg-roasted-corn", 865, 868, "A bowl with a jammy egg, charred corn, crispy chicken and green onion"),
-  barber: p("28-olde-towne-barbershop-door", 1536, 568, "The Olde Towne Barbershop entrance with a barber pole sign and an OPEN sign", "28% 50%"),
+  barber: p("28-olde-towne-barbershop-door", 1536, 568, "The Olde Towne Barbershop entrance with a barber pole sign and an OPEN sign", "40% 50%"),
   tattoo: p("29-ribshot-tattoo-neon-sign", 978, 720, "The Ribshot Tattoos neon sign"),
   guitar: p("30-leonardtown-music-hollowbody-guitar", 633, 551, "A hollow body electric guitar on display at Leonardtown Music Service"),
   spaceAvailable: p(
