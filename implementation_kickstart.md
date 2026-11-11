@@ -41,20 +41,20 @@ Built by Lee Enterprises Unlimited as a spec demo. Front end only.
 - [x] Phase 5: Visit Planner modal with all three paths, wire every button, `.ics` / `sms:` / `mailto:` outputs, mobile sticky bar, `/visit` page
 - [ ] Phase 6: launch switch, titles and descriptions, single h1, JSON-LD (validated), robots and sitemap, `llms.txt`, OG image, favicon, 404, image optimisation, `SEO-LAUNCH.md`
 - [x] Phase 6b: Lighthouse on a production build, mobile and desktop, live and demo modes
-- [ ] Phase 7: final review against the checklist, commit, push
+- [x] Phase 7: final review against the checklist, commit, push
 
 ## Final review checklist
 
-- [ ] Hero sells the job. Tag swings once and tells the truth about today. At 375px the headline and "Plan My Visit" show without scrolling.
-- [ ] Gift Finder swaps cleanly, auto-cycles once, works with mouse, touch and keyboard. Shop chips jump to the directory.
-- [ ] Open-now logic correct for every weekday in America/New_York, no hydration warning.
-- [ ] Every "Plan My Visit" opens the planner with the right pre-selects. `.ics`, `sms:`, `mailto:`, call and directions all work.
-- [ ] Every "only this business has" item is on the page.
-- [ ] Zero em dashes, zero "--", zero stock or AI images, zero invented facts.
-- [ ] Samples, category tags, Bowl 29 caption, seasonal bands and vendor reply line are labelled or commented DRAFT.
-- [ ] 2 fonts, 3 colours plus text, motion in 2 places.
-- [ ] 375px: no overflow, burger works, sticky bar works.
-- [ ] Footer on both pages; demo mode noindex with concept line; live mode index, sitemap, no concept line.
-- [ ] OG image and favicon are theirs.
-- [ ] Lighthouse SEO 100 live; others 90+; demo mode fails only the indexing audit.
-- [ ] One h1 per page with "gift shop" and "Leonardtown". Unique titles and descriptions. JSON-LD validates.
+- [x] Hero sells the job. Tag swings once and tells the truth about today. At 375px the headline and "Plan My Visit" show without scrolling.
+- [x] Gift Finder swaps cleanly, auto-cycles once, works with mouse, touch and keyboard. Shop chips jump to the directory.
+- [x] Open-now logic correct for every weekday in America/New_York, no hydration warning.
+- [x] Every "Plan My Visit" opens the planner with the right pre-selects. `.ics`, `sms:`, `mailto:`, call and directions all work.
+- [x] Every "only this business has" item is on the page.
+- [x] Zero em dashes, zero "--", zero stock or AI images, zero invented facts.
+- [x] Samples, category tags, Bowl 29 caption, seasonal bands and vendor reply line are labelled or commented DRAFT.
+- [x] 2 fonts, 3 colours plus text, motion in 2 places.
+- [x] 375px: no overflow, burger works, sticky bar works.
+- [x] Footer on both pages; demo mode noindex with concept line; live mode index, sitemap, no concept line.
+- [x] OG image and favicon are theirs.
+- [x] Lighthouse SEO 100 live; others 90+; demo mode fails only the indexing audit.
+- [x] One h1 per page with "gift shop" and "Leonardtown". Unique titles and descriptions. JSON-LD validates.

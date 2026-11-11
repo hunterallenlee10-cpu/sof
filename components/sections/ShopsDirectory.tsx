@@ -27,7 +27,9 @@ function ShopPill({ shop }: { shop: Shop }) {
 
 export default function ShopsDirectory() {
   const [query, setQuery] = useState("");
-  const deferred = useDeferredValue(query);
+  const lagging = useDeferredValue(query);
+  // Clearing the search applies at once (the Gift Finder relies on it); typing stays deferred.
+  const deferred = query ? lagging : "";
 
   // The Gift Finder clears the search before it jumps to a shop.
   useEffect(() => {
