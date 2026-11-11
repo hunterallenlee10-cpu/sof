@@ -1,4 +1,4 @@
-import Image from "next/image";
+import DeferredImage from "../ui/DeferredImage";
 import { ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
 import PlanButton from "../PlanButton";
@@ -27,7 +27,7 @@ function Tile({
   return (
     <article className={`board group flex flex-col overflow-hidden rounded-[6px] ${className}`}>
       <div className="relative min-h-[200px] flex-1 overflow-hidden">
-        <Image
+        <DeferredImage
           src={photo.src}
           alt={photo.alt}
           fill

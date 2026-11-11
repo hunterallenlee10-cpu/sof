@@ -6,12 +6,16 @@ import { PHOTOS } from "@/lib/photos";
 /**
  * Every category's photo is stacked in the panel and the selected one fades in over 300ms.
  * Stacking means the next photo is already loaded when the visitor (or the auto-cycle) switches.
+ * The stack mounts once the section is within ~600px of the viewport.
  */
-export default function GiftPhotoPanel({ selected }: { selected: string }) {
+export default function GiftPhotoPanel({ selected, near }: { selected: string; near: boolean }) {
   return (
     <div className="relative aspect-[5/4] overflow-hidden rounded-[6px] border border-line bg-board shadow-board lg:aspect-auto lg:h-full lg:min-h-[480px]">
       {GIFT_CATEGORIES.map((c) => {
         const on = c.key === selected;
+        // Nothing loads until the section is close to the viewport, so the stack never
+        // competes with the hero photo for bandwidth on first load.
+        if (!near) return null;
         const [main, second] = c.photos;
         return (
           <div

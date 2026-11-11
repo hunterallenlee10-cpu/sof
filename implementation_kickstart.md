@@ -40,7 +40,7 @@ Built by Lee Enterprises Unlimited as a spec demo. Front end only.
 - [x] Phase 4: gallery with filters and lightbox, lumberyard story, holiday band with live countdown, vendor band, reviews, FAQ, final call to action
 - [x] Phase 5: Visit Planner modal with all three paths, wire every button, `.ics` / `sms:` / `mailto:` outputs, mobile sticky bar, `/visit` page
 - [ ] Phase 6: launch switch, titles and descriptions, single h1, JSON-LD (validated), robots and sitemap, `llms.txt`, OG image, favicon, 404, image optimisation, `SEO-LAUNCH.md`
-- [ ] Phase 6b: Lighthouse on a production build, mobile and desktop, live and demo modes
+- [x] Phase 6b: Lighthouse on a production build, mobile and desktop, live and demo modes
 - [ ] Phase 7: final review against the checklist, commit, push
 
 ## Final review checklist

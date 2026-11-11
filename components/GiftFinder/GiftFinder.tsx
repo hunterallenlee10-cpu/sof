@@ -18,6 +18,7 @@ export default function GiftFinder() {
   const rowRef = useRef<HTMLDivElement>(null);
   const cycleTimers = useRef<number[]>([]);
   const userTookOver = useRef(false);
+  const [near, setNear] = useState(false);
 
   const reduceMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -42,6 +43,23 @@ export default function GiftFinder() {
   };
 
   const chooseFromCycle = useEffectEvent((key: string) => choose(key));
+
+  // Mount the full photo stack when the section gets close.
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setNear(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "600px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   // Auto-cycle once through three categories the first time the section scrolls into view.
   useEffect(() => {
@@ -134,7 +152,7 @@ export default function GiftFinder() {
         </div>
 
         <div className="mt-8 grid gap-6 lg:mt-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-10">
-          <GiftPhotoPanel selected={selected} />
+          <GiftPhotoPanel selected={selected} near={near} />
           <GiftTagCard
             category={category}
             flipping={flipping}

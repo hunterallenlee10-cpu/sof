@@ -64,7 +64,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <SiteFooter />
           <MobileBar />
         </PlannerProvider>
-        <Analytics />
+        {/* Only on Vercel builds: elsewhere the insights script 404s and logs a console error. */}
+        {process.env.VERCEL === "1" && <Analytics />}
       </body>
     </html>
   );
