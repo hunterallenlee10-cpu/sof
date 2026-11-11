@@ -6,6 +6,7 @@ import PlannerProvider from "@/components/VisitPlanner/PlannerProvider";
 import HolidayBar from "@/components/sections/HolidayBar";
 import SiteHeader from "@/components/sections/SiteHeader";
 import SiteFooter from "@/components/sections/SiteFooter";
+import MobileBar from "@/components/MobileBar";
 import { BUSINESS, IS_LIVE, SITE_URL } from "@/lib/business";
 
 const zilla = Zilla_Slab({
@@ -51,8 +52,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <PlannerProvider>
           <HolidayBar />
           <SiteHeader />
-          <main id="main">{children}</main>
+          <main id="main" tabIndex={-1} className="outline-none">
+            {children}
+          </main>
           <SiteFooter />
+          <MobileBar />
         </PlannerProvider>
         <Analytics />
       </body>

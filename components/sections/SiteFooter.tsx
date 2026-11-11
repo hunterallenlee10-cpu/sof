@@ -17,7 +17,7 @@ const QUICK = [
 export default function SiteFooter() {
   return (
     <footer className="border-t border-line bg-board pb-24 lg:pb-0">
-      <div className="container-x grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_0.8fr] lg:py-20">
+      <div className="container-x grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.25fr_1.15fr_1.15fr_0.8fr] lg:gap-10 lg:py-20">
         <div>
           <Link href="/" className="inline-flex min-h-11 items-center text-[1.75rem]" aria-label="SOF Market, home">
             <Wordmark />
@@ -33,6 +33,7 @@ export default function SiteFooter() {
               <MapPin aria-hidden="true" className="mt-1 size-4 shrink-0" strokeWidth={1.5} />
               <span>{ADDRESS_LINE}</span>
             </a>
+            <p className="pl-6 text-[0.9375rem] text-muted">In the heart of Leonardtown, St. Mary&apos;s County.</p>
             <a href={`mailto:${BUSINESS.email}`} className="flex items-start gap-2 break-all hover:text-brick">
               <Mail aria-hidden="true" className="mt-1 size-4 shrink-0" strokeWidth={1.5} />
               <span>{BUSINESS.email}</span>
@@ -42,12 +43,12 @@ export default function SiteFooter() {
 
         <div>
           <h2 className="font-display text-xl font-bold">Market hours</h2>
-          <MarketHours className="mt-4" />
+          <MarketHours className="mt-4 !gap-x-4 text-[0.9375rem]" />
         </div>
 
         <div>
           <h2 className="font-display text-xl font-bold">Brudergarten Beer Garden</h2>
-          <BrudergartenHours className="mt-4" />
+          <BrudergartenHours className="mt-4 !gap-x-4 text-[0.9375rem]" />
         </div>
 
         <div>

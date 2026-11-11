@@ -267,3 +267,23 @@
     animation: none;
   }
 }
+
+/* Visit Planner: 200ms step slide (part of the planner spec). */
+@keyframes plan-in-fwd {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+}
+@keyframes plan-in-back {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+}
+.plan-in-fwd {
+  animation: plan-in-fwd 200ms ease-out;
+}
+.plan-in-back {
+  animation: plan-in-back 200ms ease-out;
+}
