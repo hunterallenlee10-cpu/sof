@@ -36,7 +36,7 @@ Built by Lee Enterprises Unlimited as a spec demo. Front end only.
 
 - [x] Phase 1: scaffold, design tokens, fonts, holiday bar, nav with open-now pill, `lib/hours.ts` with tests, hero with the tag swing, footer
 - [x] Phase 2: Under one roof bento, Gift Finder with its mapping and auto-cycle
-- [ ] Phase 3: shops A to Z with search and letter rail, Eat and Drink, Brudergarten dark band, services row
+- [x] Phase 3: shops A to Z with search and letter rail, Eat and Drink, Brudergarten dark band, services row
 - [ ] Phase 4: gallery with filters and lightbox, lumberyard story, holiday band with live countdown, vendor band, reviews, FAQ, final call to action
 - [ ] Phase 5: Visit Planner modal with all three paths, wire every button, `.ics` / `sms:` / `mailto:` outputs, mobile sticky bar, `/visit` page
 - [ ] Phase 6: launch switch, titles and descriptions, single h1, JSON-LD (validated), robots and sitemap, `llms.txt`, OG image, favicon, 404, image optimisation, `SEO-LAUNCH.md`

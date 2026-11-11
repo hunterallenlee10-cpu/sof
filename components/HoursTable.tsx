@@ -6,7 +6,7 @@ export function HoursList({ table, className = "", dark = false }: { table: Reco
       {hoursRows(table).map((r) => (
         <div key={r.days} className="contents">
           <dt className={dark ? "text-cream/75" : "text-muted"}>{r.days}</dt>
-          <dd className="font-medium">{r.hours}</dd>
+          <dd className="font-medium whitespace-nowrap">{r.hours}</dd>
         </div>
       ))}
     </dl>

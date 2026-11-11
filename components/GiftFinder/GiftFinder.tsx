@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { useEffect, useEffectEvent, useRef, useState, type KeyboardEvent } from "react";
 import GiftPhotoPanel from "./GiftPhotoPanel";
 import GiftTagCard from "./GiftTagCard";
 import SectionHeading from "../ui/SectionHeading";
@@ -41,6 +41,8 @@ export default function GiftFinder() {
     cycleTimers.current = [];
   };
 
+  const chooseFromCycle = useEffectEvent((key: string) => choose(key));
+
   // Auto-cycle once through three categories the first time the section scrolls into view.
   useEffect(() => {
     const el = sectionRef.current;
@@ -52,7 +54,7 @@ export default function GiftFinder() {
         AUTO_CYCLE.slice(1).forEach((key, i) => {
           cycleTimers.current.push(
             window.setTimeout(() => {
-              if (!userTookOver.current) choose(key);
+              if (!userTookOver.current) chooseFromCycle(key);
             }, STEP_MS * (i + 1)),
           );
         });
