@@ -57,7 +57,7 @@ export default function GiftTagCard({
                 >
                   {name}
                   {name === NEWEST_SHOP && (
-                    <span className="rounded-full bg-brick px-2 py-0.5 text-[0.75rem] font-semibold text-white">New in the market</span>
+                    <span className="rounded-full bg-brick px-2 py-0.5 text-[0.8125rem] font-semibold text-white">New in the market</span>
                   )}
                   <ArrowDownRight aria-hidden="true" className="size-3.5 text-muted" strokeWidth={1.5} />
                 </a>

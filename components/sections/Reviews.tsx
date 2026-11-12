@@ -24,9 +24,9 @@ export default function Reviews() {
           Read the reviews on Facebook
         </a>
 
-        <ul className="mt-10 grid gap-4 md:grid-cols-3">
+        <ul className="mt-10 grid gap-4 lg:grid-cols-3">
           {SAMPLES.map((q, i) => (
-            <li key={i} className={`board flex flex-col rounded-[6px] p-6 ${i === 1 ? "md:translate-y-6" : ""}`}>
+            <li key={i} className={`board flex flex-col rounded-[6px] p-6 ${i === 1 ? "lg:translate-y-6" : ""}`}>
               <p className="border-b border-dashed border-brick/60 pb-3 text-[0.8125rem] leading-snug text-brick">
                 <span className="font-semibold">Sample review:</span> replace with real Google or Facebook reviews
               </p>

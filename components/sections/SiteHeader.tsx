@@ -66,7 +66,7 @@ export default function SiteHeader() {
       }`}
     >
       <div className="container-x flex h-16 items-center gap-4">
-        <Link href="/" className="-ml-1 inline-flex min-h-11 items-center px-1 text-[1.375rem]" aria-label="SOF Market, home">
+        <Link href="/" className="-ml-1 inline-flex min-h-11 items-center px-1 text-[1.375rem]">
           <Wordmark />
         </Link>
 

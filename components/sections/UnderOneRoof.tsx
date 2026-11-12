@@ -14,6 +14,7 @@ function Tile({
   imgClass = "",
   sizes,
   big = false,
+  strip = false,
 }: {
   photo: Photo;
   title: string;
@@ -23,10 +24,16 @@ function Tile({
   imgClass?: string;
   sizes: string;
   big?: boolean;
+  /** Wide and short: photo left, words right (tablet and up). */
+  strip?: boolean;
 }) {
   return (
-    <article className={`board group flex flex-col overflow-hidden rounded-[6px] ${className}`}>
-      <div className="relative min-h-[200px] flex-1 overflow-hidden">
+    <article className={`board group flex flex-col overflow-hidden rounded-[6px] ${strip ? "md:flex-row" : ""} ${className}`}>
+      <div
+        className={`relative min-h-[200px] flex-1 overflow-hidden ${
+          strip ? "md:min-h-[190px] md:w-[46%] md:flex-none" : big ? "min-h-[280px] md:min-h-[400px] lg:min-h-0" : ""
+        }`}
+      >
         <DeferredImage
           src={photo.src}
           alt={photo.alt}
@@ -36,7 +43,11 @@ function Tile({
           style={{ objectPosition: photo.pos }}
         />
       </div>
-      <div className={`flex flex-col gap-3 border-t border-line ${big ? "p-6 sm:flex-row sm:items-end sm:justify-between sm:p-8" : "p-5"}`}>
+      <div
+        className={`flex flex-col gap-3 border-t border-line ${
+          big ? "p-6 sm:flex-row sm:items-end sm:justify-between sm:p-8" : strip ? "p-5 md:flex-1 md:flex-row md:items-center md:justify-between md:border-t-0 md:border-l md:p-8" : "p-5"
+        }`}
+      >
         <div>
           <h3 className={`font-bold ${big ? "text-[1.875rem] sm:text-[2.25rem]" : "text-[1.5rem]"}`}>{title}</h3>
           <p className={`mt-1.5 text-ink/80 ${big ? "max-w-[30rem] text-[1.0625rem]" : ""}`}>{copy}</p>
@@ -60,7 +71,7 @@ export default function UnderOneRoof() {
           intro="Gifts, lunch and a pint, all behind one door on Duke Street."
         />
 
-        <div className="mt-10 grid gap-4 md:grid-cols-6 lg:mt-14 lg:grid-cols-12 lg:grid-rows-[minmax(330px,auto)_minmax(330px,auto)] lg:gap-5">
+        <div className="mt-10 grid gap-4 md:grid-cols-6 lg:mt-14 lg:grid-cols-12 lg:grid-rows-[minmax(330px,auto)_minmax(330px,auto)_auto] lg:gap-5">
           <Tile
             big
             photo={PHOTOS.booth}
@@ -72,7 +83,6 @@ export default function UnderOneRoof() {
               </a>
             }
             className="md:col-span-6 lg:col-span-7 lg:row-span-2"
-            imgClass="min-h-[300px] md:min-h-[380px]"
             sizes="(min-width: 1024px) 680px, 100vw"
           />
           <Tile
@@ -96,8 +106,8 @@ export default function UnderOneRoof() {
                 Plan an evening <ArrowRight aria-hidden="true" className="size-4" strokeWidth={1.5} />
               </PlanButton>
             }
-            className="md:col-span-3 lg:col-span-3"
-            sizes="(min-width: 1024px) 300px, (min-width: 768px) 50vw, 100vw"
+            className="md:col-span-3 lg:col-span-5"
+            sizes="(min-width: 1024px) 480px, (min-width: 768px) 50vw, 100vw"
           />
           <Tile
             photo={PHOTOS.barber}
@@ -108,8 +118,9 @@ export default function UnderOneRoof() {
                 See services <ArrowRight aria-hidden="true" className="size-4" strokeWidth={1.5} />
               </a>
             }
-            className="md:col-span-6 lg:col-span-2"
-            sizes="(min-width: 1024px) 200px, 100vw"
+            strip
+            className="md:col-span-6 lg:col-span-12"
+            sizes="(min-width: 768px) 560px, 100vw"
           />
         </div>
       </div>

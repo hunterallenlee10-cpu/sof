@@ -68,7 +68,7 @@ export default function EatAndDrink() {
             {/* Juice Buzz */}
             <article className="board grid grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] items-center gap-5 rounded-[6px] p-4 sm:p-5">
               <div className="aspect-square overflow-hidden rounded-[6px]">
-                <PhotoPlaceholder label="Photo: Juice Buzz, from SOF Market" className="p-3 [&_.tag]:px-3 [&_p+p]:hidden" />
+                <PhotoPlaceholder compact label="Photo: Juice Buzz, from SOF Market" />
               </div>
               <div>
                 <h3 className="text-[1.625rem] font-bold">Juice Buzz</h3>

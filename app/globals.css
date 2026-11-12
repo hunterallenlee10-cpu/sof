@@ -98,6 +98,7 @@
 
   /* Buttons: 48px tall, press state nudges down 1px. */
   .btn {
+    position: relative; /* contains any sr-only text so it never widens the page */
     display: inline-flex;
     align-items: center;
     justify-content: center;

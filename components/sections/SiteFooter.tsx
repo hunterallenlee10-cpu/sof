@@ -17,9 +17,9 @@ const QUICK = [
 export default function SiteFooter() {
   return (
     <footer className="border-t border-line bg-board pb-24 lg:pb-0">
-      <div className="container-x grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.25fr_1.15fr_1.15fr_0.8fr] lg:gap-10 lg:py-20">
+      <div className="container-x grid gap-12 py-16 md:grid-cols-2 xl:grid-cols-[1.35fr_1.15fr_1.15fr_0.8fr] xl:gap-10 lg:py-20">
         <div>
-          <Link href="/" className="inline-flex min-h-11 items-center text-[1.75rem]" aria-label="SOF Market, home">
+          <Link href="/" className="inline-flex min-h-11 items-center text-[1.75rem]">
             <Wordmark />
           </Link>
           <p className="mt-3 font-display text-xl font-semibold">{BUSINESS.welcome}</p>
@@ -29,13 +29,13 @@ export default function SiteFooter() {
           </a>
           <address className="mt-4 space-y-2 not-italic">
             <p className="font-semibold">{BUSINESS.name}</p>
-            <a href={MAPS_URL} target="_blank" rel="noopener" className="flex items-start gap-2 hover:text-brick">
+            <a href={MAPS_URL} target="_blank" rel="noopener" className="flex min-h-11 items-start gap-2 py-1 hover:text-brick">
               <MapPin aria-hidden="true" className="mt-1 size-4 shrink-0" strokeWidth={1.5} />
               <span>{ADDRESS_LINE}</span>
             </a>
             <p className="pl-6 text-[0.9375rem] text-muted">In the heart of Leonardtown, St. Mary&apos;s County.</p>
-            <a href={`mailto:${BUSINESS.email}`} className="flex items-start gap-2 break-all hover:text-brick">
-              <Mail aria-hidden="true" className="mt-1 size-4 shrink-0" strokeWidth={1.5} />
+            <a href={`mailto:${BUSINESS.email}`} className="flex min-h-11 items-center gap-2 [overflow-wrap:anywhere] hover:text-brick">
+              <Mail aria-hidden="true" className="size-4 shrink-0" strokeWidth={1.5} />
               <span>{BUSINESS.email}</span>
             </a>
           </address>

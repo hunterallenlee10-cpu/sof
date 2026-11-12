@@ -22,20 +22,20 @@ export default function HolidayBand() {
             <ChristmasCount />
           </div>
 
-          <ul className="mt-10 grid gap-px overflow-hidden rounded-[6px] border border-line bg-line sm:grid-cols-[1.5fr_1fr_1fr]">
-            <li className="bg-board p-5">
+          <ul className="mt-10 divide-y divide-line rounded-[6px] border border-line bg-board">
+            <li className="grid gap-1 p-5 sm:grid-cols-[13rem_1fr] sm:gap-6">
               <h3 className="text-xl font-bold">First Friday Weekend Sales</h3>
-              <p className="mt-1.5 text-[0.9375rem] text-ink/85">
+              <p className="text-ink/85">
                 Sales at select shops throughout the market. <FirstFridayDates />
               </p>
             </li>
-            <li className="bg-board p-5">
+            <li className="grid gap-1 p-5 sm:grid-cols-[13rem_1fr] sm:gap-6">
               <h3 className="text-xl font-bold">Trivia Wednesdays</h3>
-              <p className="mt-1.5 text-[0.9375rem] text-ink/85">7 to 9 PM at Brudergarten. Indoors, teams of 2 to 6.</p>
+              <p className="text-ink/85">7 to 9 PM at Brudergarten. Indoors, teams of 2 to 6.</p>
             </li>
-            <li className="bg-board p-5">
+            <li className="grid gap-1 p-5 sm:grid-cols-[13rem_1fr] sm:gap-6">
               <h3 className="text-xl font-bold">Karaoke Thursdays</h3>
-              <p className="mt-1.5 text-[0.9375rem] text-ink/85">Every Thursday night at Brudergarten.</p>
+              <p className="text-ink/85">Every Thursday night at Brudergarten.</p>
             </li>
           </ul>
 

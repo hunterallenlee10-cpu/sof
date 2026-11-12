@@ -37,7 +37,7 @@ export default function VisitPage() {
         )}
       />
       <section aria-labelledby="visit-title" className="pt-8 pb-14 lg:pt-14 lg:pb-20">
-        <div className="container-x grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-14">
+        <div className="container-x grid grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-14">
           <div>
             <h1 id="visit-title" className="flex flex-col">
               <span className="text-[2.75rem] leading-[1.02] font-bold sm:text-[4rem] lg:text-[4.5rem]">Plan your visit</span>
@@ -76,14 +76,14 @@ export default function VisitPage() {
       </section>
 
       <section aria-labelledby="planner-heading" className="border-t border-line bg-board/50 py-16 lg:py-24">
-        <div className="container-x grid gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,4.5fr)] lg:gap-14">
-          <div>
+        <div className="container-x grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,4.5fr)] lg:gap-14">
+          <div className="min-w-0">
             <h2 id="planner-heading" className="mb-6 text-[2.25rem] font-bold sm:text-[3rem]">
               Build your plan
             </h2>
             <InlinePlanner />
           </div>
-          <div className="lg:pt-20">
+          <div className="min-w-0 lg:pt-20">
             <HoursTagCard />
           </div>
         </div>
@@ -108,7 +108,7 @@ export default function VisitPage() {
               className="block h-[360px] w-full sm:h-[440px]"
             />
           </div>
-          <a href={MAPS_URL} target="_blank" rel="noopener" className="btn btn-primary mt-6">
+          <a href={MAPS_URL} target="_blank" rel="noopener" className="btn btn-primary mt-6 py-2 text-center whitespace-normal">
             <Navigation aria-hidden="true" className="size-4" strokeWidth={1.5} /> Get directions to 22725 Duke Street
           </a>
         </div>

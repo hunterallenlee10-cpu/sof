@@ -3,7 +3,7 @@ import PlanButton from "../PlanButton";
 // DRAFT: seasonal, swap per month.
 export default function HolidayBar() {
   return (
-    <div className="border-b border-line bg-board">
+    <aside aria-label="This month at the market" className="border-b border-line bg-board">
       <div className="container-x flex items-center justify-center gap-x-3 text-center text-[0.9375rem] font-medium text-brick">
         <p className="leading-tight">
           First Friday Weekend Sales<span className="hidden sm:inline"> at select shops</span>.
@@ -16,6 +16,6 @@ export default function HolidayBar() {
           Plan My Visit
         </PlanButton>
       </div>
-    </div>
+    </aside>
   );
 }

@@ -51,14 +51,14 @@ export default function MobileBar() {
           showBar ? "translate-y-0" : "pointer-events-none translate-y-full"
         }`}
       >
-        <nav aria-label="Quick actions" className="mx-auto grid max-w-md grid-cols-[1fr_1fr_1.5fr] gap-2">
-          <a href={BUSINESS.phoneHref} className="btn btn-ghost px-2 text-[0.9375rem]">
-            <Phone aria-hidden="true" className="size-4" strokeWidth={1.5} /> Call
+        <nav aria-label="Quick actions" className="mx-auto grid max-w-md grid-cols-[1fr_1fr_1.45fr] gap-1.5 min-[360px]:gap-2">
+          <a href={BUSINESS.phoneHref} className="btn btn-ghost px-1.5 text-[0.9375rem] max-[359px]:text-[0.875rem]">
+            <Phone aria-hidden="true" className="size-4 max-[359px]:hidden" strokeWidth={1.5} /> Call
           </a>
-          <a href={MAPS_URL} target="_blank" rel="noopener" className="btn btn-ghost px-2 text-[0.9375rem]">
-            <Navigation aria-hidden="true" className="size-4" strokeWidth={1.5} /> Directions
+          <a href={MAPS_URL} target="_blank" rel="noopener" className="btn btn-ghost px-1.5 text-[0.9375rem] max-[359px]:text-[0.875rem]">
+            <Navigation aria-hidden="true" className="size-4 max-[359px]:hidden" strokeWidth={1.5} /> Directions
           </a>
-          <PlanButton className="btn btn-primary px-2 text-[0.9375rem]" />
+          <PlanButton className="btn btn-primary px-1.5 text-[0.9375rem] max-[359px]:text-[0.875rem]" />
         </nav>
       </div>
     </>

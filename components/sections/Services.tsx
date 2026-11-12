@@ -57,9 +57,8 @@ export default function Services() {
               <PlanButton
                 prefill={{ reasons: ["service"], service: s.name }}
                 className="btn btn-ghost mt-5 self-start"
-                ariaLabel={`Plan a visit with ${s.name}`}
               >
-                Plan a visit with this
+                Plan a visit<span className="sr-only"> with {s.name}</span>
               </PlanButton>
             </div>
           </article>

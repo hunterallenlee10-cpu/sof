@@ -9,10 +9,10 @@ function Rows({ table, today }: { table: Record<number, Span>; today: number | n
       {hoursRows(table).map((r) => {
         const on = today !== null && r.weekdays.includes(today);
         return (
-          <div key={r.days} className={`grid grid-cols-[1fr_auto] gap-4 rounded-[4px] px-2 py-1.5 ${on ? "bg-brick text-white" : ""}`}>
+          <div key={r.days} className={`grid grid-cols-[minmax(0,1fr)_auto] gap-3 rounded-[4px] px-2 py-1.5 ${on ? "bg-brick text-white" : ""}`}>
             <dt className={on ? "font-semibold" : "text-muted"}>
               {r.days}
-              {on && <span className="ml-2 text-[0.8125rem] font-medium">(today)</span>}
+              {on && <span className="ml-1.5 text-[0.8125rem] font-medium whitespace-nowrap">(today)</span>}
             </dt>
             <dd className="font-medium whitespace-nowrap">{r.hours}</dd>
           </div>

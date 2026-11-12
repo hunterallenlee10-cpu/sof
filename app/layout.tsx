@@ -7,6 +7,7 @@ import HolidayBar from "@/components/sections/HolidayBar";
 import SiteHeader from "@/components/sections/SiteHeader";
 import SiteFooter from "@/components/sections/SiteFooter";
 import MobileBar from "@/components/MobileBar";
+import RouteScrollTop from "@/components/RouteScrollTop";
 import { BUSINESS, IS_LIVE, SITE_URL } from "@/lib/business";
 
 const zilla = Zilla_Slab({
@@ -47,7 +48,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${zilla.variable} ${work.variable} antialiased`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${zilla.variable} ${work.variable} antialiased`}>
       <body className="min-h-dvh">
         <a
           href="#main"
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </main>
           <SiteFooter />
           <MobileBar />
+          <RouteScrollTop />
         </PlannerProvider>
         {/* Only on Vercel builds: elsewhere the insights script 404s and logs a console error. */}
         {process.env.VERCEL === "1" && <Analytics />}

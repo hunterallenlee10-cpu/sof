@@ -18,7 +18,7 @@ function ShopPill({ shop }: { shop: Shop }) {
     >
       <span className="font-medium">{shop.name}</span>
       <span className="flex shrink-0 items-center gap-1.5">
-        {shop.isNew && <span className="rounded-full bg-brick px-2 py-0.5 text-[0.75rem] font-semibold text-white">New</span>}
+        {shop.isNew && <span className="rounded-full bg-brick px-2 py-0.5 text-[0.8125rem] font-semibold text-white">New</span>}
         {shop.tag && <span className="text-[0.8125rem] whitespace-nowrap text-muted">{shop.tag}</span>}
       </span>
     </li>
@@ -27,13 +27,20 @@ function ShopPill({ shop }: { shop: Shop }) {
 
 export default function ShopsDirectory() {
   const [query, setQuery] = useState("");
+  // On phones the full A to Z list is very long, so it starts at A to C with a "Show all" button.
+  // Every name stays in the HTML (hidden with CSS on small screens only).
+  const [expanded, setExpanded] = useState(false);
   const lagging = useDeferredValue(query);
   // Clearing the search applies at once (the Gift Finder relies on it); typing stays deferred.
   const deferred = query ? lagging : "";
 
   // The Gift Finder clears the search before it jumps to a shop.
   useEffect(() => {
-    const onReveal = () => flushSync(() => setQuery(""));
+    const onReveal = () =>
+      flushSync(() => {
+        setQuery("");
+        setExpanded(true);
+      });
     window.addEventListener("sof:reveal-shop", onReveal);
     return () => window.removeEventListener("sof:reveal-shop", onReveal);
   }, []);
@@ -47,6 +54,21 @@ export default function ShopsDirectory() {
   }, [deferred]);
 
   const count = groups.reduce((n, [, l]) => n + l.length, 0);
+  const collapsed = !expanded && !deferred;
+  const PREVIEW_GROUPS = 3;
+
+  const jumpToLetter = (e: React.MouseEvent<HTMLAnchorElement>, L: string) => {
+    e.preventDefault();
+    flushSync(() => {
+      setExpanded(true);
+      setQuery("");
+    });
+    const el = document.getElementById(`letter-${L}`);
+    if (!el) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    history.replaceState(null, "", `#letter-${L}`);
+  };
   const letters = new Set(SHOPS.map((s) => s.letter));
 
   return (
@@ -95,6 +117,7 @@ export default function ShopsDirectory() {
                 <li key={L}>
                   <a
                     href={`#letter-${L}`}
+                    onClick={(e) => jumpToLetter(e, L)}
                     className="inline-flex size-11 items-center justify-center font-display text-lg font-bold hover:bg-board hover:text-brick"
                   >
                     {L}
@@ -117,8 +140,12 @@ export default function ShopsDirectory() {
           <p className="mt-8 max-w-xl text-lg">No shop by that name on our list yet. New makers join all the time, so stop in and ask at the front.</p>
         ) : (
           <div className="mt-6 gap-x-6 sm:columns-2 lg:columns-3">
-            {groups.map(([letter, shops]) => (
-              <div key={letter} id={`letter-${letter}`} className="mb-6 break-inside-avoid">
+            {groups.map(([letter, shops], gi) => (
+              <div
+                key={letter}
+                id={`letter-${letter}`}
+                className={`mb-6 break-inside-avoid ${collapsed && gi >= PREVIEW_GROUPS ? "max-sm:hidden" : ""}`}
+              >
                 <h3 className="mb-2 flex items-center gap-3 text-2xl font-bold text-brick">
                   {letter}
                   <span aria-hidden="true" className="h-px flex-1 bg-line" />
@@ -131,6 +158,20 @@ export default function ShopsDirectory() {
               </div>
             ))}
           </div>
+        )}
+
+        {collapsed && count > 0 && (
+          <button
+            type="button"
+            onClick={() => {
+              flushSync(() => setExpanded(true));
+              // keep keyboard and screen reader users in place: focus the first newly shown shop
+              document.querySelector<HTMLElement>(`#letter-${groups[PREVIEW_GROUPS]?.[0]} li`)?.focus();
+            }}
+            className="btn btn-ghost w-full sm:hidden"
+          >
+            Show all {count} shops, A to Z
+          </button>
         )}
 
         <p className="mt-6 font-display text-xl font-semibold">New makers join all the time. Stop in and see what is new.</p>

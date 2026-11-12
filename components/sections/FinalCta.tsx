@@ -16,7 +16,7 @@ export default function FinalCta() {
             Come find something new.
           </h2>
           <p className="mx-auto mt-4 max-w-[34rem] text-lg font-semibold text-cream [text-shadow:0_1px_2px_rgba(30,27,23,0.6)]">22725 Duke Street, Leonardtown. Open Tuesday to Sunday.</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <div className="mx-auto mt-8 flex max-w-sm flex-col gap-3 sm:max-w-none sm:flex-row sm:justify-center">
             <PlanButton />
             <a href={BUSINESS.phoneHref} className="btn btn-cream">
               <Phone aria-hidden="true" className="size-4" strokeWidth={1.5} />
